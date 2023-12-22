@@ -11,7 +11,7 @@ const questions = [
     {
         type: 'input',
         name: 'color',
-        message: 'Choose a color for your logo'
+        message: 'Choose a color for your the letters in your logo'
     },
     {
         type: 'list',
