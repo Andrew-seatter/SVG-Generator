@@ -1,25 +1,30 @@
-const generateSVG = (answers) => {
-return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-        
-<${newShape(answers.shape)}"${answers.shapeColor}" />
-  
-          
-        <${newText(answers.shape)}"${answers.color}">${answers.letters}</text>
-          
-    </svg>`;
-}
+const {
+    Shape,
+    Circle,
+    Triangle,
+    Square
+} = require('./shapes');
 
+// creates a class dependent on the answers chosen
+const generateSVG = (answers) => {
+    const newCircle = new Circle(answers.shapeColor, answers.shapeChoice);
+    const newTriangle = new Triangle(answers.shapeColor, answers.shapeChoice);
+    const newSquare = new Square(answers.shapeColor, answers.shapeChoice);
+
+
+    //switch statement to choose which class to render
 const newShape = (answers) => {
     switch (answers) {
         case 'Circle':
-            return 'circle cx="150" cy="100" r="80" fill=';
+            return newCircle.render();
         case 'Triangle':
-            return 'polygon points="100 30, 200 200, 0 200" cx="150" cy="100" r="80" fill=';
+            return newTriangle.render();
         case 'Square':
-            return 'rect x="50" y="20" width="150" height="150" fill=';
+            return newSquare.render();
     }
 }
 
+//returns certain font sizing and postioning depending on shape choice
 const newText = (answers) => {
     switch (answers) {
         case 'Circle':
@@ -29,6 +34,17 @@ const newText = (answers) => {
         case 'Square':
             return `text x="100" y="150" font-size="40" text-anchor="middle" fill=`
     }
+  }
+
+  //returns whole svg file code
+  return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        
+<${newShape(answers.shapeChoice)}"${answers.shapeColor}" />
+  
+          
+        <${newText(answers.shapeChoice)}"${answers.color}">${answers.letters}</text>
+          
+    </svg>`;
 }
 
 module.exports = generateSVG;
