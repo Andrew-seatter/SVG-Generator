@@ -1,6 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateSvg = require('./assets/generateSVG');
+const {
+  Shape,
+  Circle,
+  Triangle,
+  Square
+} = require('./assets/shapes');
+
+
 
 const questions = [
     {
@@ -10,12 +18,12 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'color',
+        name: 'textColor',
         message: 'Choose a color for your the letters in your logo'
     },
     {
         type: 'list',
-        name:'shape',
+        name:'shapeChoice',
         message: 'Choose a shape below',
         choices: [
             'Circle',
