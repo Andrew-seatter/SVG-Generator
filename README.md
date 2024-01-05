@@ -31,7 +31,7 @@ Lastly to run tests
 
     npm run test
 
-Link to video of app: https://drive.google.com/file/d/1VafU6rd1xJvTaKGFeVoGKmJnTUKx7S5k/view
+Link to video of app: https://drive.google.com/file/d/1dUnAIlm5azCKuuXVVwRjIMKEs2y8HFf4/view
 ## Credits
 N/A
 
