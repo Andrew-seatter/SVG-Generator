@@ -1,15 +1,15 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateSvg = require('./assets/generateSVG');
+const generateSvg = require('./lib/generateSVG');
 const {
   Shape,
   Circle,
   Triangle,
   Square
-} = require('./assets/shapes');
+} = require('./lib/shapes');
 
 
-
+//questions array for inquirer prompt
 const questions = [
     {
       type: 'input',
@@ -38,6 +38,7 @@ const questions = [
     }
 ]
 
+//write file function to create svg file
  function writeToFile(fileName, contentText){
     fs.writeFile(fileName, contentText, (err) => {
       err ? console.log(err) : console.log('Generated your Logo')
@@ -56,5 +57,5 @@ function init() {
   });
 }
 
-// Function call to initialize app
+//calling function upon starting the application
 init();
